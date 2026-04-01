@@ -68,7 +68,7 @@ export function Window({ window: win, children }: WindowProps) {
         openWindow({
           id: randomApp + '-' + Date.now() + '-' + i,
           title: `Oops! More windows!`,
-          icon: '[X]',
+          icon: '😈',
           component: randomApp,
           x: 50 + Math.random() * 400,
           y: 50 + Math.random() * 200,

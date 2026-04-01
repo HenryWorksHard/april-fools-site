@@ -4,12 +4,12 @@ import { useState } from 'react'
 import { useChaosStore } from '@/stores/chaosStore'
 
 const socialLinks = [
-  { name: 'Twitter', icon: '[TW]', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealToken' },
-  { name: 'Telegram', icon: '[PH]', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 'Join the "community"' },
-  { name: 'Discord', icon: '[GAME]', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'Definitely not a rickroll' },
-  { name: 'Website', icon: '[NET]', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'Official Site' },
-  { name: 'DexScreener', icon: '[G]', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'View Chart' },
-  { name: 'CoinGecko', icon: '[CG]', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'CoinGecko Listing' },
+  { name: 'Twitter', icon: '🐦', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealToken' },
+  { name: 'Telegram', icon: '📱', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 'Join the "community"' },
+  { name: 'Discord', icon: '🎮', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'Definitely not a rickroll' },
+  { name: 'Website', icon: '🌐', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'Official Site' },
+  { name: 'DexScreener', icon: '📊', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'View Chart' },
+  { name: 'CoinGecko', icon: '🦎', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'CoinGecko Listing' },
 ]
 
 export function FakeSocials() {

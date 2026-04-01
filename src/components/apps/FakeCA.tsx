@@ -60,7 +60,7 @@ export function FakeCA() {
   return (
     <div className="flex flex-col items-center justify-center h-full p-6 bg-[#c0c0c0] font-['MS_Sans_Serif',Tahoma,sans-serif]">
       <div className="text-center mb-4">
-        <div className="text-6xl mb-2">[CA]</div>
+        <div className="text-6xl mb-2">📋</div>
         <h2 className="text-lg font-bold">Contract Address</h2>
         <p className="text-xs text-gray-600 mt-1">(100% legitimate, trust me bro)</p>
       </div>
@@ -82,7 +82,7 @@ export function FakeCA() {
             active:border-t-gray-600 active:border-l-gray-600 active:border-b-white active:border-r-white
           `}
         >
-          {copied ? copyMessage : '[CA] Copy CA'}
+          {copied ? copyMessage : '📋 Copy CA'}
         </button>
 
         {clickCount > 0 && (

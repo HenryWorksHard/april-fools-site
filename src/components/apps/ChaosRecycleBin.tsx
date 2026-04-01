@@ -4,16 +4,16 @@ import { useState } from 'react'
 import { useChaosStore } from '@/stores/chaosStore'
 
 const deletedItems = [
-  { name: 'Your_Trading_Career.exe', size: '404 KB', date: 'Today', icon: '[X]' },
-  { name: 'Diamond_Hands.pdf', size: '0 KB', date: 'Yesterday', icon: '[D]' },
-  { name: 'Life_Savings.wallet', size: 'Empty', date: 'Last week', icon: '[W]' },
-  { name: 'Trust_In_Devs.txt', size: 'Corrupted', date: 'Long ago', icon: '[F]' },
-  { name: 'Exit_Liquidity.jpg', size: 'You', date: 'Every time', icon: '[IMG]' },
-  { name: 'Unrealized_Gains.xlsx', size: 'Infinite', date: 'Never', icon: '[G]' },
-  { name: 'Seed_Phrase.txt', size: 'EXPOSED', date: 'Oops', icon: '[K]' },
-  { name: 'Financial_Freedom.dream', size: '-$69,420', date: 'April 1st', icon: '*' },
-  { name: 'DYOR_Results.log', size: 'Ignored', date: 'Always', icon: '[CA]' },
-  { name: 'Rug_Pull_Warning.alert', size: 'Unread', date: 'Before loss', icon: '[!]' },
+  { name: 'Your_Trading_Career.exe', size: '404 KB', date: 'Today', icon: '💀' },
+  { name: 'Diamond_Hands.pdf', size: '0 KB', date: 'Yesterday', icon: '💎' },
+  { name: 'Life_Savings.wallet', size: 'Empty', date: 'Last week', icon: '👛' },
+  { name: 'Trust_In_Devs.txt', size: 'Corrupted', date: 'Long ago', icon: '📄' },
+  { name: 'Exit_Liquidity.jpg', size: 'You', date: 'Every time', icon: '🖼️' },
+  { name: 'Unrealized_Gains.xlsx', size: 'Infinite', date: 'Never', icon: '📊' },
+  { name: 'Seed_Phrase.txt', size: 'EXPOSED', date: 'Oops', icon: '🔑' },
+  { name: 'Financial_Freedom.dream', size: '-$69,420', date: 'April 1st', icon: '✨' },
+  { name: 'DYOR_Results.log', size: 'Ignored', date: 'Always', icon: '📋' },
+  { name: 'Rug_Pull_Warning.alert', size: 'Unread', date: 'Before loss', icon: '⚠️' },
 ]
 
 export function ChaosRecycleBin() {
@@ -54,9 +54,9 @@ export function ChaosRecycleBin() {
     // 50% chance to ADD more items instead of removing
     if (Math.random() < 0.5) {
       const newItems = [
-        { name: 'More_Regrets.txt', size: 'Growing', date: 'Now', icon: 'T_T' },
-        { name: 'Paper_Hands_Receipt.pdf', size: 'Large', date: 'Just now', icon: '[R]' },
-        { name: 'Copium.exe', size: 'Infinite', date: 'Always', icon: '~' },
+        { name: 'More_Regrets.txt', size: 'Growing', date: 'Now', icon: '😭' },
+        { name: 'Paper_Hands_Receipt.pdf', size: 'Large', date: 'Just now', icon: '🧾' },
+        { name: 'Copium.exe', size: 'Infinite', date: 'Always', icon: '💨' },
       ]
       setItems([...items, newItems[Math.floor(Math.random() * newItems.length)]])
       setMessage("Emptying bin... wait, why is there MORE stuff now?!")
@@ -83,7 +83,7 @@ export function ChaosRecycleBin() {
         name: 'Even_More_Regrets.pain',
         size: 'Immeasurable',
         date: 'Eternal',
-        icon: 'X'
+        icon: '💔'
       }
       return [...filtered, newItem]
     })

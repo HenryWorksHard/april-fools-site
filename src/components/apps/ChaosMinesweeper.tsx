@@ -215,7 +215,7 @@ export function ChaosMinesweeper() {
           onClick={resetGame}
           className="text-2xl px-2 border-2 border-t-white border-l-white border-b-gray-600 border-r-gray-600 active:border-t-gray-600 active:border-l-gray-600"
         >
-          {gameOver ? 'X_X' : won ? 'B)' : ':)'}
+          {gameOver ? '😵' : won ? '😎' : '🙂'}
         </button>
         <div className="bg-black text-red-500 font-mono px-2 py-1 min-w-[50px] text-center">
           {String(Math.floor(Math.random() * 999)).padStart(3, '0')}
@@ -245,8 +245,8 @@ export function ChaosMinesweeper() {
                 disabled={gameOver || won}
               >
                 {cell.isRevealed ? (
-                  cell.isMine ? '[BOOM]' : (cell.adjacentMines > 0 ? cell.adjacentMines : '')
-                ) : cell.isFlagged ? '[F]' : ''}
+                  cell.isMine ? '💥' : (cell.adjacentMines > 0 ? cell.adjacentMines : '')
+                ) : cell.isFlagged ? '🚩' : ''}
               </button>
             ))}
           </div>
@@ -256,7 +256,7 @@ export function ChaosMinesweeper() {
       {(gameOver || won) && (
         <div className="mt-2 text-center">
           <p className={`font-bold ${won ? 'text-green-600' : 'text-red-600'}`}>
-            {won ? ' YOU WIN! ' : '[BOOM] BOOM! [BOOM]'}
+            {won ? '🎉 YOU WIN! 🎉' : '💥 BOOM! 💥'}
           </p>
           <button 
             onClick={resetGame}
