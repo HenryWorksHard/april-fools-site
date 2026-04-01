@@ -162,7 +162,7 @@ export function ChaosSnake() {
       <div className="flex justify-between w-full mb-2 text-sm">
         <span>Score: {score}</span>
         <span className={invertedControls ? 'text-red-600' : 'text-green-600'}>
-          Controls: {invertedControls ? '🔄 INVERTED' : '✓ Normal (unlikely)'}
+          Controls: {invertedControls ? '~ INVERTED' : 'OK Normal (unlikely)'}
         </span>
       </div>
       

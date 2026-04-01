@@ -41,12 +41,12 @@ export function Taskbar() {
   // Random fake notifications
   useEffect(() => {
     const notifications = [
-      "🚨 Wallet drained!",
-      "📈 +9999% gains (jk)",
-      "💀 Dev rugged",
+      "[!] Wallet drained!",
+      "[CHART] +9999% gains (jk)",
+      "[X] Dev rugged",
       "🔔 Clippy misses you",
-      "⚠️ Trust issues",
-      "🎉 April Fools!",
+      "[!] Trust issues",
+      " April Fools!",
     ]
     
     const interval = setInterval(() => {
@@ -119,7 +119,7 @@ export function Taskbar() {
             ${startMenuOpen ? 'from-[#4aa84a] to-[#2d7b2d]' : ''}
           `}
         >
-          <span className="text-lg">🪟</span>
+          <span className="text-lg">[WIN]</span>
           <span>Start</span>
         </button>
 
@@ -150,8 +150,8 @@ export function Taskbar() {
 
         {/* System Tray */}
         <div className="flex items-center gap-2 px-3 h-full bg-gradient-to-b from-[#0f8eff] to-[#0b6fcd] border-l border-[#fff]/20">
-          <span className="text-white/80 text-sm cursor-pointer" title="Volume (muted forever)">🔇</span>
-          <span className="text-white/80 text-sm cursor-pointer" title="No internet">📵</span>
+          <span className="text-white/80 text-sm cursor-pointer" title="Volume (muted forever)">[MUTE]</span>
+          <span className="text-white/80 text-sm cursor-pointer" title="No internet">[X]</span>
           <span className="text-white text-sm font-medium cursor-pointer" title="Time is an illusion">{time}</span>
         </div>
       </div>

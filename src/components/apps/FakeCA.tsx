@@ -11,11 +11,11 @@ const fakeAddresses = [
   "TrU5tM3Br0111111111111111111",
   "NotAScam99999999999999999999",
   "DeFinitely1Real11111111111111",
-  "🚀🌙💎🙌🦍📈🔥💀😂🤡",
+  "[GO]🌙[D][Y][A][CHART]HOT[X]lol[C]",
 ]
 
 const trollCopies = [
-  "Copied: APRIL FOOLS! 🎉",
+  "Copied: APRIL FOOLS! ",
   "Copied: HA! You thought.",
   "Copied: Your mom's wallet address",
   "Copied: 0x0000...0000 (empty wallet)",
@@ -42,7 +42,7 @@ export function FakeCA() {
     const trollText = trollCopies[Math.floor(Math.random() * trollCopies.length)]
     
     // Actually copy a troll message
-    navigator.clipboard.writeText("APRIL FOOLS! There is no CA. 🎉").catch(() => {})
+    navigator.clipboard.writeText("APRIL FOOLS! There is no CA. ").catch(() => {})
     
     setCopyMessage(trollText)
     setCopied(true)
@@ -60,7 +60,7 @@ export function FakeCA() {
   return (
     <div className="flex flex-col items-center justify-center h-full p-6 bg-[#c0c0c0] font-['MS_Sans_Serif',Tahoma,sans-serif]">
       <div className="text-center mb-4">
-        <div className="text-6xl mb-2">📋</div>
+        <div className="text-6xl mb-2">[CA]</div>
         <h2 className="text-lg font-bold">Contract Address</h2>
         <p className="text-xs text-gray-600 mt-1">(100% legitimate, trust me bro)</p>
       </div>
@@ -82,7 +82,7 @@ export function FakeCA() {
             active:border-t-gray-600 active:border-l-gray-600 active:border-b-white active:border-r-white
           `}
         >
-          {copied ? copyMessage : '📋 Copy CA'}
+          {copied ? copyMessage : '[CA] Copy CA'}
         </button>
 
         {clickCount > 0 && (
@@ -92,7 +92,7 @@ export function FakeCA() {
         )}
 
         <div className="mt-4 p-3 bg-yellow-100 border border-yellow-400 text-xs">
-          <p className="font-bold mb-1">⚠️ WARNING:</p>
+          <p className="font-bold mb-1">[!] WARNING:</p>
           <p>This contract has been audited by absolutely no one. DYOR (Do Your Own Regret).</p>
         </div>
 
@@ -112,7 +112,7 @@ export function FakeCA() {
       {clickCount >= 5 && (
         <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
           <div className="text-center text-white">
-            <p className="text-4xl mb-4">🎉 APRIL FOOLS! 🎉</p>
+            <p className="text-4xl mb-4"> APRIL FOOLS! </p>
             <p className="text-lg">There is no token.</p>
             <p className="text-lg">There was never a token.</p>
             <p className="text-sm mt-4 text-gray-400">But thanks for the engagement!</p>

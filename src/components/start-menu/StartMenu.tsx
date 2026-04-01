@@ -4,32 +4,32 @@ import { useWindowStore } from '@/stores/windowStore'
 import { useAppStore } from '@/stores/appStore'
 
 const menuItems = [
-  { id: 'ca', icon: '📋', label: 'Contract Address' },
-  { id: 'manifesto', icon: '📜', label: 'manifesto.exe' },
-  { id: 'games', icon: '🎮', label: 'Games', hasSubmenu: true },
-  { id: 'minesweeper', icon: '💣', label: 'Minesweeper', indent: true },
-  { id: 'snake', icon: '🐍', label: 'Snake', indent: true },
-  { id: 'paint', icon: '🎨', label: 'Paint', indent: true },
+  { id: 'ca', icon: '[CA]', label: 'Contract Address' },
+  { id: 'manifesto', icon: '[DOC]', label: 'manifesto.exe' },
+  { id: 'games', icon: '[GAME]', label: 'Games', hasSubmenu: true },
+  { id: 'minesweeper', icon: '[BOMB]', label: 'Minesweeper', indent: true },
+  { id: 'snake', icon: '[SNAKE]', label: 'Snake', indent: true },
+  { id: 'paint', icon: '[PAINT]', label: 'Paint', indent: true },
   { id: 'divider1', divider: true },
-  { id: 'chart', icon: '📈', label: 'Chart' },
-  { id: 'gallery', icon: '🖼️', label: 'Gallery' },
-  { id: 'readme', icon: '📝', label: 'README.txt' },
-  { id: 'socials', icon: '💬', label: 'Socials' },
+  { id: 'chart', icon: '[CHART]', label: 'Chart' },
+  { id: 'gallery', icon: '[IMG]', label: 'Gallery' },
+  { id: 'readme', icon: '[TXT]', label: 'README.txt' },
+  { id: 'socials', icon: '[MSG]', label: 'Socials' },
   { id: 'divider2', divider: true },
   { id: 'shutdown', icon: '⚡', label: 'Shut Down...' },
 ]
 
 const appConfigs: Record<string, { title: string; icon: string; width: number; height: number }> = {
-  ca: { title: 'CA.exe - Contract Address', icon: '📋', width: 450, height: 400 },
-  manifesto: { title: 'manifesto.exe - Notepad', icon: '📜', width: 500, height: 400 },
-  readme: { title: 'README.txt - Notepad', icon: '📝', width: 450, height: 350 },
-  games: { title: '2024 Games', icon: '🎮', width: 300, height: 200 },
-  minesweeper: { title: 'Minesweeper - $2024 Edition', icon: '💣', width: 320, height: 420 },
-  paint: { title: 'Paint', icon: '🎨', width: 600, height: 450 },
-  snake: { title: 'Snake', icon: '🐍', width: 400, height: 450 },
-  chart: { title: 'chart.exe - Internet Explorer', icon: '📈', width: 800, height: 600 },
-  socials: { title: 'Socials', icon: '💬', width: 300, height: 250 },
-  gallery: { title: 'Gallery', icon: '🖼️', width: 600, height: 500 },
+  ca: { title: 'CA.exe - Contract Address', icon: '[CA]', width: 450, height: 400 },
+  manifesto: { title: 'manifesto.exe - Notepad', icon: '[DOC]', width: 500, height: 400 },
+  readme: { title: 'README.txt - Notepad', icon: '[TXT]', width: 450, height: 350 },
+  games: { title: '2024 Games', icon: '[GAME]', width: 300, height: 200 },
+  minesweeper: { title: 'Minesweeper - $2024 Edition', icon: '[BOMB]', width: 320, height: 420 },
+  paint: { title: 'Paint', icon: '[PAINT]', width: 600, height: 450 },
+  snake: { title: 'Snake', icon: '[SNAKE]', width: 400, height: 450 },
+  chart: { title: 'chart.exe - Internet Explorer', icon: '[CHART]', width: 800, height: 600 },
+  socials: { title: 'Socials', icon: '[MSG]', width: 300, height: 250 },
+  gallery: { title: 'Gallery', icon: '[IMG]', width: 600, height: 500 },
 }
 
 export function StartMenu() {
@@ -66,7 +66,7 @@ export function StartMenu() {
     >
       {/* Header */}
       <div className="bg-gradient-to-r from-[#0a246a] to-[#a6caf0] p-2 flex items-center gap-2">
-        <span className="text-2xl">🪟</span>
+        <span className="text-2xl">[WIN]</span>
         <span className="text-white font-bold text-lg">$2024</span>
       </div>
 

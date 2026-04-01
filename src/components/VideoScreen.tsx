@@ -66,7 +66,7 @@ export function VideoScreen() {
           onClick={toggleMute}
           className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 bg-black/50 px-3 py-2 rounded"
         >
-          <span>{isMuted ? '🔇' : '🔊'}</span>
+          <span>{isMuted ? '[MUTE]' : '[VOL]'}</span>
           <span className="text-sm">{isMuted ? 'UNMUTE' : 'MUTE'}</span>
         </button>
         <button

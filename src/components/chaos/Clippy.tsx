@@ -77,7 +77,7 @@ export function Clippy({ message, onDismiss }: ClippyProps) {
         
         {/* Clippy */}
         <div className="text-6xl cursor-pointer hover:scale-110 transition-transform select-none">
-          📎
+          [CLIP]
         </div>
       </div>
       

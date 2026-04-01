@@ -35,7 +35,7 @@ export function RecycleBin() {
 
       {/* Title */}
       <div className="bg-[#ffffc8] border-b border-[#808080] p-2 text-xs">
-        <p className="font-bold">🗑️ Deleted Gains - 2024 Memecoins</p>
+        <p className="font-bold">[BIN] Deleted Gains - 2024 Memecoins</p>
         <p className="text-[#808080]">All-Time High Market Caps vs Now. RIP.</p>
       </div>
 

@@ -89,7 +89,7 @@ export function BSOD() {
               Press any key to continue (or don't, we don't care)
             </button>
             <p className="text-xs mt-4 text-gray-400">
-              Just kidding. Happy April Fools! 🎉
+              Just kidding. Happy April Fools! 
             </p>
           </div>
         )}

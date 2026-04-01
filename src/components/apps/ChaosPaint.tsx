@@ -160,10 +160,10 @@ export function ChaosPaint() {
 
   const getModeDescription = () => {
     switch (chaosMode) {
-      case 'mirror': return '🪞 Mirror Mode (everything is doubled)'
-      case 'random': return '🎨 Rainbow Mode (color roulette)'
-      case 'delayed': return '⏰ Lag Mode (500ms delay)'
-      default: return '✏️ Normal Mode (mostly)'
+      case 'mirror': return '~ Mirror Mode (everything is doubled)'
+      case 'random': return '[PAINT] Rainbow Mode (color roulette)'
+      case 'delayed': return '[T] Lag Mode (500ms delay)'
+      default: return '[P] Normal Mode (mostly)'
     }
   }
 

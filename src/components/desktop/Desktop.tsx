@@ -34,28 +34,28 @@ const chaosMapping: Record<string, string> = {
 }
 
 const desktopIcons = [
-  { id: 'ca', icon: '📋', label: 'CA.exe' },
-  { id: 'manifesto', icon: '📜', label: 'manifesto.exe' },
-  { id: 'games', icon: '🎮', label: 'games.exe' },
-  { id: 'chart', icon: '📈', label: 'chart.exe' },
-  { id: 'gallery', icon: '🖼️', label: 'gallery.exe' },
-  { id: 'readme', icon: '📝', label: 'README.txt' },
-  { id: 'recycle', icon: '🗑️', label: 'Recycle Bin' },
-  { id: 'socials', icon: '💬', label: 'socials.exe' },
+  { id: 'ca', icon: '[CA]', label: 'CA.exe' },
+  { id: 'manifesto', icon: '[DOC]', label: 'manifesto.exe' },
+  { id: 'games', icon: '[GAME]', label: 'games.exe' },
+  { id: 'chart', icon: '[CHART]', label: 'chart.exe' },
+  { id: 'gallery', icon: '[IMG]', label: 'gallery.exe' },
+  { id: 'readme', icon: '[TXT]', label: 'README.txt' },
+  { id: 'recycle', icon: '[BIN]', label: 'Recycle Bin' },
+  { id: 'socials', icon: '[MSG]', label: 'socials.exe' },
 ]
 
 const appConfigs: Record<string, { title: string; icon: string; width: number; height: number }> = {
-  ca: { title: 'CA.exe - Contract Address', icon: '📋', width: 450, height: 400 },
-  manifesto: { title: 'manifesto.exe - Notepad', icon: '📜', width: 500, height: 400 },
-  readme: { title: 'README.txt - Notepad', icon: '📝', width: 450, height: 350 },
-  games: { title: 'Games Menu', icon: '🎮', width: 300, height: 250 },
-  minesweeper: { title: 'Minesweeper', icon: '💣', width: 320, height: 420 },
-  snake: { title: 'Snake', icon: '🐍', width: 420, height: 480 },
-  paint: { title: 'Paint', icon: '🎨', width: 600, height: 500 },
-  chart: { title: 'chart.exe - DexScreener', icon: '📈', width: 700, height: 500 },
-  socials: { title: 'socials.exe', icon: '💬', width: 350, height: 320 },
-  gallery: { title: 'Gallery', icon: '🖼️', width: 600, height: 550 },
-  recycle: { title: 'Recycle Bin', icon: '🗑️', width: 500, height: 450 },
+  ca: { title: 'CA.exe - Contract Address', icon: '[CA]', width: 450, height: 400 },
+  manifesto: { title: 'manifesto.exe - Notepad', icon: '[DOC]', width: 500, height: 400 },
+  readme: { title: 'README.txt - Notepad', icon: '[TXT]', width: 450, height: 350 },
+  games: { title: 'Games Menu', icon: '[GAME]', width: 300, height: 250 },
+  minesweeper: { title: 'Minesweeper', icon: '[BOMB]', width: 320, height: 420 },
+  snake: { title: 'Snake', icon: '[SNAKE]', width: 420, height: 480 },
+  paint: { title: 'Paint', icon: '[PAINT]', width: 600, height: 500 },
+  chart: { title: 'chart.exe - DexScreener', icon: '[CHART]', width: 700, height: 500 },
+  socials: { title: 'socials.exe', icon: '[MSG]', width: 350, height: 320 },
+  gallery: { title: 'Gallery', icon: '[IMG]', width: 600, height: 550 },
+  recycle: { title: 'Recycle Bin', icon: '[BIN]', width: 500, height: 450 },
 }
 
 export function Desktop() {
@@ -236,7 +236,7 @@ export function Desktop() {
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <div className="text-3xl rotate-180">🖱️</div>
+          <div className="text-3xl rotate-180">[M]</div>
         </div>
       )}
 
@@ -261,19 +261,19 @@ function GamesMenu({ onOpenGame }: { onOpenGame: (game: string) => void }) {
         onClick={() => handleClick('minesweeper')}
         className="flex items-center gap-2 w-full p-2 hover:bg-[#316ac5] hover:text-white border border-transparent hover:border-white"
       >
-        <span>💣</span> Minesweeper (definitely safe)
+        <span>[BOMB]</span> Minesweeper (definitely safe)
       </button>
       <button 
         onClick={() => handleClick('snake')}
         className="flex items-center gap-2 w-full p-2 hover:bg-[#316ac5] hover:text-white border border-transparent hover:border-white"
       >
-        <span>🐍</span> Snake (controls verified)
+        <span>[SNAKE]</span> Snake (controls verified)
       </button>
       <button 
         onClick={() => handleClick('paint')}
         className="flex items-center gap-2 w-full p-2 hover:bg-[#316ac5] hover:text-white border border-transparent hover:border-white"
       >
-        <span>🎨</span> Paint (100% functional)
+        <span>[PAINT]</span> Paint (100% functional)
       </button>
     </div>
   )

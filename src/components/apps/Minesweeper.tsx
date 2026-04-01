@@ -143,9 +143,9 @@ export function Minesweeper() {
   }
 
   const getCellContent = (cell: CellState) => {
-    if (cell.isFlagged) return '🚩'
+    if (cell.isFlagged) return '[F]'
     if (!cell.isRevealed) return ''
-    if (cell.isMine) return '💣'
+    if (cell.isMine) return '[BOMB]'
     if (cell.adjacentMines === 0) return ''
     return cell.adjacentMines
   }
@@ -169,13 +169,13 @@ export function Minesweeper() {
       {/* Header */}
       <div className="flex items-center justify-between p-2 bg-[#c0c0c0] border-b-2 border-[#808080]">
         <div className="bg-black text-red-500 font-mono text-xl px-2 py-1 min-w-[50px] text-center">
-          💣 {MINES - flagCount}
+          [BOMB] {MINES - flagCount}
         </div>
         <button
           onClick={resetGame}
           className="text-2xl hover:scale-110 transition-transform"
         >
-          {gameOver ? '😵' : won ? '😎' : '🙂'}
+          {gameOver ? 'X_X' : won ? 'B)' : ':)'}
         </button>
         <div className="bg-black text-red-500 font-mono text-xl px-2 py-1 min-w-[50px] text-center">
           $TRAD
@@ -212,7 +212,7 @@ export function Minesweeper() {
 
       {/* Footer */}
       <div className="text-xs text-center py-1 text-[#808080] bg-[#c0c0c0]">
-        Left click: reveal | Right click: flag 🚩 | Mines = bundle dumps 💀
+        Left click: reveal | Right click: flag [F] | Mines = bundle dumps [X]
       </div>
     </div>
   )

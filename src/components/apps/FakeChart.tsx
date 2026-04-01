@@ -194,13 +194,13 @@ export function FakeChart() {
           onClick={handleRefresh}
           className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded"
         >
-          🔄
+          ~
         </button>
       </div>
 
       {/* Warning banner */}
       <div className="bg-yellow-900/50 border-t border-yellow-600 p-2 text-center text-xs">
-        <span className="text-yellow-500">⚠️ DYOR: This chart only goes down. That's the feature.</span>
+        <span className="text-yellow-500">[!] DYOR: This chart only goes down. That's the feature.</span>
       </div>
     </div>
   )

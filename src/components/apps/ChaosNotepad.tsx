@@ -73,7 +73,7 @@ export function ChaosNotepad() {
       default:
         // "Normal" but occasionally insert random characters
         if (Math.random() < 0.05 && newText.length > 0) {
-          const randomChars = '!@#$%^&*()💀🚀🌙😂'
+          const randomChars = '!@#$%^&*()[X][GO]🌙lol'
           const randomChar = randomChars[Math.floor(Math.random() * randomChars.length)]
           const pos = Math.floor(Math.random() * newText.length)
           setDisplayText(newText.slice(0, pos) + randomChar + newText.slice(pos))
@@ -117,10 +117,10 @@ export function ChaosNotepad() {
 
   const getModeLabel = () => {
     switch (mode) {
-      case 'reverse': return '🔄 Reverse Mode'
+      case 'reverse': return '~ Reverse Mode'
       case 'scramble': return '🔀 Scramble Mode'
-      case 'replace': return '🔢 L33t Mode'
-      default: return '📝 Normal Mode (suspicious)'
+      case 'replace': return '1337 L33t Mode'
+      default: return '[TXT] Normal Mode (suspicious)'
     }
   }
 
@@ -177,7 +177,7 @@ export function ChaosNotepad() {
       {showTroll && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#ffffcc] border-2 border-black p-4 z-50 shadow-lg max-w-[80%]">
           <div className="flex items-start gap-2">
-            <span className="text-2xl">📎</span>
+            <span className="text-2xl">[CLIP]</span>
             <div>
               <p className="text-sm">{trollMessage}</p>
               <button 
@@ -206,7 +206,7 @@ export function ChaosNotepad() {
       {/* Status bar */}
       <div className="flex items-center justify-between p-1 border-t border-gray-400 text-xs">
         <span>Chars: {displayText.length} | Words: {displayText.split(/\s+/).filter(Boolean).length}</span>
-        <span className="text-red-600">⚠️ Auto-save: Disabled Forever</span>
+        <span className="text-red-600">[!] Auto-save: Disabled Forever</span>
       </div>
     </div>
   )

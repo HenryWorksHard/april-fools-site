@@ -139,13 +139,13 @@ export function Snake() {
       {/* Header */}
       <div className="flex items-center justify-between p-2 bg-[#c0c0c0] border-b-2 border-[#808080]">
         <div className="bg-black text-green-500 font-mono text-xl px-2 py-1 min-w-[60px] text-center">
-          🐍 {score}
+          [SNAKE] {score}
         </div>
         <button
           onClick={resetGame}
           className="text-2xl hover:scale-110 transition-transform"
         >
-          {gameOver ? '😵' : isPlaying ? '🙂' : '🎮'}
+          {gameOver ? 'X_X' : isPlaying ? ':)' : '[GAME]'}
         </button>
         <div className="bg-black text-green-500 font-mono text-xl px-2 py-1 min-w-[60px] text-center">
           $TRAD
@@ -200,7 +200,7 @@ export function Snake() {
                     <div className="text-white text-sm mb-4">Score: {score}</div>
                   </>
                 ) : (
-                  <div className="text-green-400 text-lg mb-4">🐍 SNAKE</div>
+                  <div className="text-green-400 text-lg mb-4">[SNAKE] SNAKE</div>
                 )}
                 <button
                   onClick={resetGame}

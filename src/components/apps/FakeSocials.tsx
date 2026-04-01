@@ -4,12 +4,12 @@ import { useState } from 'react'
 import { useChaosStore } from '@/stores/chaosStore'
 
 const socialLinks = [
-  { name: 'Twitter', icon: '🐦', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealToken' },
-  { name: 'Telegram', icon: '📱', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 'Join the "community"' },
-  { name: 'Discord', icon: '🎮', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'Definitely not a rickroll' },
-  { name: 'Website', icon: '🌐', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'Official Site' },
-  { name: 'DexScreener', icon: '📊', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'View Chart' },
-  { name: 'CoinGecko', icon: '🦎', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'CoinGecko Listing' },
+  { name: 'Twitter', icon: '[TW]', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealToken' },
+  { name: 'Telegram', icon: '[PH]', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 'Join the "community"' },
+  { name: 'Discord', icon: '[GAME]', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'Definitely not a rickroll' },
+  { name: 'Website', icon: '[NET]', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'Official Site' },
+  { name: 'DexScreener', icon: '[G]', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'View Chart' },
+  { name: 'CoinGecko', icon: '[CG]', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'CoinGecko Listing' },
 ]
 
 export function FakeSocials() {
@@ -42,7 +42,7 @@ export function FakeSocials() {
 
       {showWarning && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-100 border-2 border-red-600 p-4 z-50 shadow-lg">
-          <p className="text-sm font-bold text-red-600">⚠️ Are you sure?</p>
+          <p className="text-sm font-bold text-red-600">[!] Are you sure?</p>
           <p className="text-xs mt-1">These links may not go where you expect...</p>
           <p className="text-xs mt-2 text-gray-500">(Click again if you dare)</p>
         </div>
@@ -66,7 +66,7 @@ export function FakeSocials() {
               <p className="text-xs text-gray-600">{link.label}</p>
             </div>
             {clickedLinks.has(link.name) && (
-              <span className="text-xs text-red-600">🚨</span>
+              <span className="text-xs text-red-600">[!]</span>
             )}
           </button>
         ))}
@@ -74,7 +74,7 @@ export function FakeSocials() {
 
       {clickedLinks.size >= 3 && (
         <div className="mt-4 p-3 bg-yellow-200 border border-yellow-600 text-center">
-          <p className="text-sm font-bold">🎉 Achievement Unlocked!</p>
+          <p className="text-sm font-bold"> Achievement Unlocked!</p>
           <p className="text-xs">You clicked {clickedLinks.size} suspicious links.</p>
           <p className="text-xs text-gray-600 mt-1">Your operational security: 0/10</p>
         </div>
