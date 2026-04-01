@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --xp-blue: #0a246a;
+  --xp-light-blue: #a6caf0;
+  --xp-gray: #ece9d8;
+  --xp-dark-gray: #848484;
+  --xp-taskbar: #245edb;
+  --xp-start-green: #5cb85c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Tahoma", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+}
+
+/* XP-style scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ece9d8;
+  border: 1px solid #848484;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #ece9d8 0%, #c0c0c0 50%, #ece9d8 100%);
+  border: 1px solid #848484;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #d0d0d0 0%, #a0a0a0 50%, #d0d0d0 100%);
+}
+
+::-webkit-scrollbar-button {
+  background: #ece9d8;
+  border: 1px solid #848484;
+}
+
+/* Selection color */
+::selection {
+  background: #316ac5;
+  color: white;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
