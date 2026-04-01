@@ -48,6 +48,7 @@ const appConfigs: Record<string, { title: string; icon: string; width: number; h
   ca: { title: 'foolcoin - Contract Address', icon: '🤡', width: 450, height: 400 },
   manifesto: { title: 'manifesto.exe - Notepad', icon: '📜', width: 500, height: 400 },
   readme: { title: 'README.txt - Notepad', icon: '📝', width: 450, height: 350 },
+  notepad: { title: 'Notepad', icon: '📝', width: 450, height: 350 },
   games: { title: 'Games Menu', icon: '🎮', width: 300, height: 250 },
   minesweeper: { title: 'Minesweeper', icon: '💣', width: 320, height: 420 },
   snake: { title: 'Snake', icon: '🐍', width: 420, height: 480 },
@@ -158,6 +159,7 @@ export function Desktop() {
         return <FakeCA />
       case 'manifesto':
       case 'readme':
+      case 'notepad':
         return <ChaosNotepad />
       case 'minesweeper':
         return <ChaosMinesweeper />
