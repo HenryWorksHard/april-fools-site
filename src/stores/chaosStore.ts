@@ -20,16 +20,16 @@ interface ChaosState {
 }
 
 const clippyMessages = [
-  "It looks like you're trying to make money. Would you like me to delete your wallet?",
+  "It looks like you're trying to close this window. Would you like me to open more?",
   "I see you clicked something. That was a mistake.",
-  "Did you know? 97% of memecoins go to zero. This one goes to negative zero.",
-  "You seem lost. So is your investment.",
-  "Would you like to enable 'Rug Pull Mode'? (It's already enabled)",
+  "Did you know? 97% of buttons on this site don't work. The other 3% make things worse.",
+  "You seem lost. So am I. We have that in common.",
+  "Would you like to enable 'Chaos Mode'? (It's already enabled)",
   "I noticed you're having fun. Let me fix that.",
-  "This isn't financial advice. This isn't even a real computer.",
-  "Error 404: Your profits not found",
-  "Shall I send your seed phrase to everyone in your contacts?",
-  "You've been clicking for a while. Touch grass.",
+  "This isn't a real computer. But your frustration is.",
+  "Error 404: Your expectations not found",
+  "Shall I randomize your controls again? Too late, already did.",
+  "You've been clicking for a while. Have you tried turning it off and never on again?",
 ]
 
 export const useChaosStore = create<ChaosState>((set, get) => ({

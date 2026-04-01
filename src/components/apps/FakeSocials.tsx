@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useChaosStore } from '@/stores/chaosStore'
 
 const socialLinks = [
-  { name: 'Twitter', icon: '🐦', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealToken' },
+  { name: 'Twitter', icon: '🐦', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealAccount' },
   { name: 'Telegram', icon: '📱', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 'Join the "community"' },
   { name: 'Discord', icon: '🎮', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'Definitely not a rickroll' },
   { name: 'Website', icon: '🌐', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'Official Site' },

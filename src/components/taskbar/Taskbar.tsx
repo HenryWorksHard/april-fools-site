@@ -41,12 +41,12 @@ export function Taskbar() {
   // Random fake notifications
   useEffect(() => {
     const notifications = [
-      "[!] Wallet drained!",
-      "[CHART] +9999% gains (jk)",
-      "[X] Dev rugged",
-      "🔔 Clippy misses you",
-      "[!] Trust issues",
-      " April Fools!",
+      "[!] New message! (jk)",
+      "[CHART] Score +9999% (nope)",
+      "[X] Task failed successfully",
+      "[CLIP] Clippy misses you",
+      "[!] Trust issues detected",
+      "April Fools!",
     ]
     
     const interval = setInterval(() => {

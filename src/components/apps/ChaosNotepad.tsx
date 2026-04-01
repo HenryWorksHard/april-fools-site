@@ -8,9 +8,9 @@ const trollMessages = [
   "APRIL FOOLS! Your text is now backwards.",
   "Error: Brain.exe has stopped working",
   "The cake is a lie. So is this notepad.",
-  "Congratulations! You've been selected for a free rug pull!",
-  "Loading financial advice... just kidding, DYOR.",
-  "Your typing speed: Slow. Your trading speed: Also slow.",
+  "Congratulations! You've been selected for a free headache!",
+  "Loading productivity... just kidding, procrastinate more.",
+  "Your typing speed: Slow. Your patience: Gone.",
   "Fun fact: This text will self-destruct in... just kidding. Or will it?",
 ]
 
@@ -73,7 +73,7 @@ export function ChaosNotepad() {
       default:
         // "Normal" but occasionally insert random characters
         if (Math.random() < 0.05 && newText.length > 0) {
-          const randomChars = '!@#$%^&*()[X][GO]🌙lol'
+          const randomChars = '!@#$%^&*()xyzXYZ'
           const randomChar = randomChars[Math.floor(Math.random() * randomChars.length)]
           const pos = Math.floor(Math.random() * newText.length)
           setDisplayText(newText.slice(0, pos) + randomChar + newText.slice(pos))
@@ -118,9 +118,9 @@ export function ChaosNotepad() {
   const getModeLabel = () => {
     switch (mode) {
       case 'reverse': return '~ Reverse Mode'
-      case 'scramble': return '🔀 Scramble Mode'
+      case 'scramble': return '~ Scramble Mode'
       case 'replace': return '1337 L33t Mode'
-      default: return '[TXT] Normal Mode (suspicious)'
+      default: return '[P] Normal Mode (suspicious)'
     }
   }
 
@@ -177,7 +177,7 @@ export function ChaosNotepad() {
       {showTroll && (
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#ffffcc] border-2 border-black p-4 z-50 shadow-lg max-w-[80%]">
           <div className="flex items-start gap-2">
-            <span className="text-2xl">[CLIP]</span>
+            <span className="text-2xl">📎</span>
             <div>
               <p className="text-sm">{trollMessage}</p>
               <button 

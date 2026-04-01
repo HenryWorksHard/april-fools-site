@@ -1,14 +1,14 @@
-// The contract address that definitely doesn't exist
+// The secret code that definitely doesn't exist
 export const CONTRACT_ADDRESS = 'APRIL420FOOLS69LMAO2026GOTTEM'
 
-// Token info (all fake)
+// Info (all fake)
 export const TOKEN_INFO = {
-  name: 'April Fools Token',
-  symbol: '$APRLFLS',
+  name: 'April Fools',
+  symbol: 'PRANK',
   decimals: 9,
-  totalSupply: '420,690,000,000',
+  totalPranks: '420,690,000,000',
   launchDate: 'April 1st, 2026',
-  chain: 'Solana (not really)',
-  liquidity: 'Locked (in our hearts)',
-  audit: 'None (obviously)',
+  legitimacy: 'Questionable',
+  trust: 'None',
+  audit: 'LOL',
 }

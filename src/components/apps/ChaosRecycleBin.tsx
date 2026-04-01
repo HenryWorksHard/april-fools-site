@@ -4,16 +4,16 @@ import { useState } from 'react'
 import { useChaosStore } from '@/stores/chaosStore'
 
 const deletedItems = [
-  { name: 'Your_Trading_Career.exe', size: '404 KB', date: 'Today', icon: '💀' },
-  { name: 'Diamond_Hands.pdf', size: '0 KB', date: 'Yesterday', icon: '💎' },
-  { name: 'Life_Savings.wallet', size: 'Empty', date: 'Last week', icon: '👛' },
-  { name: 'Trust_In_Devs.txt', size: 'Corrupted', date: 'Long ago', icon: '📄' },
-  { name: 'Exit_Liquidity.jpg', size: 'You', date: 'Every time', icon: '🖼️' },
-  { name: 'Unrealized_Gains.xlsx', size: 'Infinite', date: 'Never', icon: '📊' },
-  { name: 'Seed_Phrase.txt', size: 'EXPOSED', date: 'Oops', icon: '🔑' },
-  { name: 'Financial_Freedom.dream', size: '-$69,420', date: 'April 1st', icon: '✨' },
-  { name: 'DYOR_Results.log', size: 'Ignored', date: 'Always', icon: '📋' },
-  { name: 'Rug_Pull_Warning.alert', size: 'Unread', date: 'Before loss', icon: '⚠️' },
+  { name: 'My_Social_Life.exe', size: '404 KB', date: 'Today', icon: '💀' },
+  { name: 'Good_Decisions.pdf', size: '0 KB', date: 'Yesterday', icon: '📄' },
+  { name: 'Free_Time.zip', size: 'Empty', date: 'Last week', icon: '📁' },
+  { name: 'Trust_Issues.txt', size: 'Corrupted', date: 'Long ago', icon: '📝' },
+  { name: 'My_Last_Braincell.jpg', size: 'Tiny', date: 'Every time', icon: '🖼️' },
+  { name: 'Sleep_Schedule.xlsx', size: 'Infinite', date: 'Never', icon: '📊' },
+  { name: 'Touch_Grass.reminder', size: 'IGNORED', date: 'Oops', icon: '🌿' },
+  { name: 'Productive_Day.dream', size: '-69,420 KB', date: 'April 1st', icon: '✨' },
+  { name: 'Terms_And_Conditions.log', size: 'Unread', date: 'Always', icon: '📋' },
+  { name: 'Important_Email.alert', size: 'Deleted', date: 'Before reading', icon: '⚠️' },
 ]
 
 export function ChaosRecycleBin() {
@@ -31,12 +31,12 @@ export function ChaosRecycleBin() {
     
     // Can't restore anything
     const responses = [
-      "Error: Cannot restore. Item has been rugged.",
-      "Restoration failed: Liquidity not found.",
-      "Access denied: You paper-handed this already.",
+      "Error: Cannot restore. Item has achieved enlightenment.",
+      "Restoration failed: File is vibing in the void.",
+      "Access denied: This item ghosted you.",
       "Error 69: Nice try, but no.",
       "Cannot restore: Item was never real to begin with.",
-      "Restoration requires: Hopium (not found)",
+      "Restoration requires: Touching grass (not found)",
     ]
     setMessage(responses[Math.floor(Math.random() * responses.length)])
     setTimeout(() => setMessage(''), 3000)
@@ -54,20 +54,20 @@ export function ChaosRecycleBin() {
     // 50% chance to ADD more items instead of removing
     if (Math.random() < 0.5) {
       const newItems = [
-        { name: 'More_Regrets.txt', size: 'Growing', date: 'Now', icon: '😭' },
-        { name: 'Paper_Hands_Receipt.pdf', size: 'Large', date: 'Just now', icon: '🧾' },
-        { name: 'Copium.exe', size: 'Infinite', date: 'Always', icon: '💨' },
+        { name: 'More_Problems.txt', size: 'Growing', date: 'Now', icon: '😭' },
+        { name: 'Unread_Messages.pdf', size: 'Large', date: 'Just now', icon: '🧾' },
+        { name: 'Procrastination.exe', size: 'Infinite', date: 'Always', icon: '💨' },
       ]
       setItems([...items, newItems[Math.floor(Math.random() * newItems.length)]])
       setMessage("Emptying bin... wait, why is there MORE stuff now?!")
     } else {
       setItems([])
-      setMessage("Bin emptied! (Your memories of gains remain)")
+      setMessage("Bin emptied! (Your problems remain)")
       
       // But bring everything back after 2 seconds
       setTimeout(() => {
         setItems(deletedItems)
-        setMessage("Just kidding! Nothing is ever truly deleted. Like your losses.")
+        setMessage("Just kidding! Nothing is ever truly deleted. Like your browser history.")
       }, 2000)
     }
   }
@@ -80,7 +80,7 @@ export function ChaosRecycleBin() {
     setItems(prev => {
       const filtered = prev.filter(i => i.name !== selectedItem)
       const newItem = {
-        name: 'Even_More_Regrets.pain',
+        name: 'Even_More_Problems.pain',
         size: 'Immeasurable',
         date: 'Eternal',
         icon: '💔'
@@ -155,7 +155,7 @@ export function ChaosRecycleBin() {
           {items.length === 0 && (
             <div className="p-4 text-center text-gray-500 text-sm">
               <p>Recycle Bin is empty!</p>
-              <p className="text-xs mt-2">(But your regrets are not)</p>
+              <p className="text-xs mt-2">(But your responsibilities are not)</p>
             </div>
           )}
         </div>
@@ -164,7 +164,7 @@ export function ChaosRecycleBin() {
       {/* Status bar */}
       <div className="flex items-center justify-between p-1 border-t border-gray-400 text-xs">
         <span>{items.length} items</span>
-        <span className="text-red-600">Total regret: Immeasurable</span>
+        <span className="text-red-600">Total chaos: Immeasurable</span>
       </div>
     </div>
   )
