@@ -191,8 +191,8 @@ export function Desktop() {
     <div 
       className="relative w-full h-screen overflow-hidden bg-cover bg-center select-none"
       style={{ 
-        backgroundImage: "url('/images/bliss.jpg')",
-        backgroundColor: '#3a6ea5',
+        backgroundImage: "url('/images/circus-bg.png')",
+        backgroundColor: '#f5d6c6',
         backgroundSize: 'cover',
         cursor: mouseInverted ? 'none' : 'default',
       }}
