@@ -91,8 +91,8 @@ export function StartMenu() {
           🤡
         </div>
         <div>
-          <span className="text-white font-bold text-lg drop-shadow-sm">FOOLS</span>
-          <p className="text-white/80 text-xs">April 1st Edition</p>
+          <span className="text-white font-bold text-lg drop-shadow-sm">$FOOL</span>
+          <p className="text-white/80 text-xs">foolcoin</p>
         </div>
       </div>
 

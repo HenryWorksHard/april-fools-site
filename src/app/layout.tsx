@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FOOLS - April 1st",
-  description: "A Windows XP experience for April Fools Day.",
+  title: "$FOOL - foolcoin",
+  description: "The official foolcoin experience. Windows XP nostalgia meets April Fools.",
   icons: {
     icon: [
       { url: "/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },

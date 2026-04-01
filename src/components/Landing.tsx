@@ -38,12 +38,12 @@ export function Landing() {
       <link rel="preload" href="/video/intro.mp4" as="video" type="video/mp4" />
       <link rel="preload" href="/images/bliss.jpg" as="image" />
       
-      {/* FOOLS Logo */}
+      {/* foolcoin Logo */}
       <div className="mb-16 text-center">
-        <h1 className="text-7xl md:text-9xl font-bold text-white tracking-tight">
-          FOOLS
+        <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tight">
+          $FOOL
         </h1>
-        <p className="text-gray-500 text-sm mt-2">April 1st Edition</p>
+        <p className="text-gray-400 text-xl mt-4 font-light">foolcoin</p>
       </div>
 
       {/* Click to Enter */}
@@ -52,8 +52,8 @@ export function Landing() {
       </div>
 
       {/* Tagline */}
-      <p className="text-gray-400 mt-4 text-sm md:text-base text-center leading-relaxed">
-        A nostalgic trip back to simpler times...
+      <p className="text-gray-500 mt-6 text-sm md:text-base text-center leading-relaxed max-w-md">
+        The only coin honest about what it is
       </p>
     </div>
   )

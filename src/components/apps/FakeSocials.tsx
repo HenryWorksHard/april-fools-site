@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { useChaosStore } from '@/stores/chaosStore'
 
 const socialLinks = [
-  { name: 'Twitter', icon: '🐦', fakeUrl: 'https://twitter.com/elonmusk', label: '@TotallyRealAccount' },
-  { name: 'Telegram', icon: '📱', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 'Join the "community"' },
+  { name: 'Twitter', icon: '🐦', fakeUrl: 'https://twitter.com/elonmusk', label: '@foolcoin (real)' },
+  { name: 'Telegram', icon: '📱', fakeUrl: 'https://t.me/addstickers/HotCherry', label: 't.me/foolcoin' },
   { name: 'Discord', icon: '🎮', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'Definitely not a rickroll' },
-  { name: 'Website', icon: '🌐', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'Official Site' },
-  { name: 'DexScreener', icon: '📊', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'View Chart' },
+  { name: 'Website', icon: '🌐', fakeUrl: 'https://www.google.com/search?q=why+did+i+click+this', label: 'foolcoin.lol' },
+  { name: 'DexScreener', icon: '📊', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: '$FOOL Chart' },
   { name: 'CoinGecko', icon: '🦎', fakeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', label: 'CoinGecko Listing' },
 ]
 
@@ -36,8 +36,9 @@ export function FakeSocials() {
   return (
     <div className="flex flex-col h-full p-4 bg-[#c0c0c0] font-['MS_Sans_Serif',Tahoma,sans-serif]">
       <div className="text-center mb-4">
-        <h2 className="text-lg font-bold">Join the Community!</h2>
-        <p className="text-xs text-gray-600">(What could go wrong?)</p>
+        <span className="text-3xl">🤡</span>
+        <h2 className="text-lg font-bold">$FOOL Community</h2>
+        <p className="text-xs text-gray-600">foolcoin.lol</p>
       </div>
 
       {showWarning && (
@@ -74,7 +75,7 @@ export function FakeSocials() {
 
       {clickedLinks.size >= 3 && (
         <div className="mt-4 p-3 bg-yellow-200 border border-yellow-600 text-center">
-          <p className="text-sm font-bold"> Achievement Unlocked!</p>
+          <p className="text-sm font-bold">🏆 Achievement Unlocked!</p>
           <p className="text-xs">You clicked {clickedLinks.size} suspicious links.</p>
           <p className="text-xs text-gray-600 mt-1">Your operational security: 0/10</p>
         </div>
@@ -82,10 +83,10 @@ export function FakeSocials() {
 
       <div className="mt-auto pt-4 text-center">
         <p className="text-xs text-gray-500">
-          Followers: 69,420 (all bots)
+          $FOOL Holders: 69,420 (all bots)
         </p>
         <p className="text-xs text-gray-500">
-          Community Trust Score: 404
+          Trust Score: April 1st
         </p>
       </div>
     </div>
