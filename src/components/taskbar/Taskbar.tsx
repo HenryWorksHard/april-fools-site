@@ -107,20 +107,36 @@ export function Taskbar() {
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-b from-[#245edb] via-[#3f8cf3] to-[#245edb] border-t-2 border-[#5fb3ff] flex items-center">
-        {/* Start Button */}
+        {/* Start Button - Classic XP Green */}
         <button
           onClick={handleStartClick}
           className={`
-            flex items-center gap-1 h-[34px] px-3 mx-1 rounded-r-lg
-            bg-gradient-to-b from-[#5cb85c] to-[#3d8b3d]
-            border border-[#fff]/30
-            text-white font-bold text-sm
-            hover:from-[#6cc86c] hover:to-[#4d9b4d]
-            ${startMenuOpen ? 'from-[#4aa84a] to-[#2d7b2d]' : ''}
+            flex items-center gap-1.5 h-[30px] pl-2 pr-4 ml-[2px]
+            text-white font-bold text-[13px] italic
+            rounded-r-[8px] rounded-l-[2px]
+            shadow-md
+            ${startMenuOpen 
+              ? 'brightness-90' 
+              : 'hover:brightness-110'
+            }
           `}
+          style={{
+            background: startMenuOpen 
+              ? 'linear-gradient(180deg, #2f8f2f 0%, #1e6b1e 50%, #165a16 100%)'
+              : 'linear-gradient(180deg, #3c9b3c 0%, #37913a 15%, #2d8d2d 30%, #1e7a1e 70%, #1a6d1a 85%, #156215 100%)',
+            border: '1px solid #0d4d0d',
+            borderTop: '1px solid #5ac55a',
+            borderLeft: '1px solid #4ab84a',
+            textShadow: '1px 1px 1px rgba(0,0,0,0.5)',
+          }}
         >
-          <span className="text-lg">🪟</span>
-          <span>Start</span>
+          <span 
+            className="text-[18px] not-italic"
+            style={{ 
+              filter: 'drop-shadow(1px 1px 0px rgba(0,0,0,0.3))',
+            }}
+          >🪟</span>
+          <span>start</span>
         </button>
 
         {/* Quick Launch Divider */}

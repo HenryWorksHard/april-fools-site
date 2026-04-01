@@ -1,84 +1,118 @@
 'use client'
 
-interface RecycleItem {
-  ticker: string
-  name: string
-  athMcap: string
-  currentMcap: string
-  athDate: string
-}
+import { useState } from 'react'
+import { useChaosStore } from '@/stores/chaosStore'
 
-const recycleItems: RecycleItem[] = [
-  { ticker: '$WIF', name: 'dogwifhat', athMcap: '$4.8B', currentMcap: '$172M', athDate: 'Mar 2024' },
-  { ticker: '$BONK', name: 'Bonk', athMcap: '$5.1B', currentMcap: '$533M', athDate: 'Nov 2024' },
-  { ticker: '$POPCAT', name: 'Popcat', athMcap: '$2.0B', currentMcap: '$51M', athDate: 'Nov 2024' },
-  { ticker: '$MEW', name: 'cat in a dogs world', athMcap: '$1.1B', currentMcap: '$54M', athDate: 'Nov 2024' },
-  { ticker: '$MOTHER', name: 'Mother Iggy', athMcap: '$222M', currentMcap: '$1.1M', athDate: 'Jun 2024' },
-  { ticker: '$DADDY', name: 'Daddy Tate', athMcap: '$173M', currentMcap: '$3.7M', athDate: 'Jun 2024' },
-  { ticker: '$PNUT', name: 'Peanut the Squirrel', athMcap: '$2.4B', currentMcap: '$46M', athDate: 'Nov 2024' },
-  { ticker: '$GOAT', name: 'Goatseus Maximus', athMcap: '$1.3B', currentMcap: '$19M', athDate: 'Nov 2024' },
-  { ticker: '$FARTCOIN', name: 'Fartcoin', athMcap: '$2.5B', currentMcap: '$158M', athDate: 'Jan 2025' },
-  { ticker: '$SLERF', name: 'Slerf', athMcap: '$800M', currentMcap: '$2.1M', athDate: 'Mar 2024' },
-  { ticker: '$TREMP', name: 'Doland Tremp', athMcap: '$151M', currentMcap: '$592K', athDate: '2024' },
+const deletedFiles = [
+  { name: 'Important_Project.doc', size: '2.4 MB', date: 'Last week' },
+  { name: 'Old_Photos.zip', size: '156 MB', date: 'Yesterday' },
+  { name: 'Tax_Returns.pdf', size: '890 KB', date: 'April 1st' },
+  { name: 'Game_Saves.bak', size: '45 MB', date: 'Long ago' },
+  { name: 'Unnamed_Folder', size: '???', date: 'Unknown' },
+  { name: 'System32.dll', size: 'DO NOT', date: 'DELETE' },
+  { name: 'ReadMe_Important.txt', size: '1 KB', date: 'Never read' },
+  { name: 'Good_Ideas.doc', size: '0 KB', date: 'Empty' },
+  { name: 'Passwords.txt', size: 'Oops', date: 'Too late' },
+  { name: 'My_Homework.final.v2.REAL.doc', size: '420 KB', date: '4/1' },
 ]
 
 export function RecycleBin() {
+  const [selected, setSelected] = useState<string | null>(null)
+  const [message, setMessage] = useState('')
+  const { incrementClicks } = useChaosStore()
+
+  const handleSelect = (name: string) => {
+    incrementClicks()
+    setSelected(name)
+  }
+
+  const handleRestore = () => {
+    incrementClicks()
+    if (!selected) {
+      setMessage("Select a file first... or don't. I'm not your boss.")
+      setTimeout(() => setMessage(''), 2000)
+      return
+    }
+    
+    const responses = [
+      "Error: File has moved on. It's in a better place now.",
+      "Cannot restore: File is having an existential crisis.",
+      "Restoration denied: File doesn't want to come back.",
+      "Error 418: I'm a teapot, not a file restorer.",
+      "This file was never real. April Fools!",
+    ]
+    setMessage(responses[Math.floor(Math.random() * responses.length)])
+    setTimeout(() => setMessage(''), 3000)
+  }
+
+  const handleEmpty = () => {
+    incrementClicks()
+    setMessage("Are you sure? Actually, it doesn't matter. Nothing works here.")
+    setTimeout(() => setMessage(''), 2000)
+  }
+
   return (
-    <div className="flex flex-col h-full bg-white">
-      {/* Menu Bar */}
-      <div className="flex items-center bg-[#ece9d8] border-b border-[#848484] px-1 py-0.5 text-xs">
-        <button className="px-2 py-0.5 hover:bg-[#316ac5] hover:text-white">File</button>
-        <button className="px-2 py-0.5 hover:bg-[#316ac5] hover:text-white">Edit</button>
-        <button className="px-2 py-0.5 hover:bg-[#316ac5] hover:text-white">View</button>
-        <button className="px-2 py-0.5 hover:bg-[#316ac5] hover:text-white">Help</button>
+    <div className="h-full bg-[#c0c0c0] font-['MS_Sans_Serif',Tahoma,sans-serif] flex flex-col">
+      {/* Header */}
+      <div className="p-2 border-b border-gray-400">
+        <p className="font-bold">[BIN] Recycle Bin</p>
+        <p className="text-xs text-gray-600">Deleted files go here to contemplate their existence</p>
       </div>
 
-      {/* Title */}
-      <div className="bg-[#ffffc8] border-b border-[#808080] p-2 text-xs">
-        <p className="font-bold">[BIN] Deleted Gains - 2024 Memecoins</p>
-        <p className="text-[#808080]">All-Time High Market Caps vs Now. RIP.</p>
+      {message && (
+        <div className="bg-yellow-100 border-b border-yellow-400 p-2 text-xs text-center">
+          {message}
+        </div>
+      )}
+
+      {/* Toolbar */}
+      <div className="flex gap-2 p-2 border-b border-gray-400">
+        <button 
+          onClick={handleRestore}
+          className="px-2 py-1 text-xs border-2 border-t-white border-l-white border-b-gray-600 border-r-gray-600"
+        >
+          Restore
+        </button>
+        <button 
+          onClick={handleEmpty}
+          className="px-2 py-1 text-xs border-2 border-t-white border-l-white border-b-gray-600 border-r-gray-600"
+        >
+          Empty Bin
+        </button>
       </div>
 
-      {/* Column Headers */}
-      <div className="grid grid-cols-[80px_1fr_100px_100px] bg-[#ece9d8] border-b border-[#848484] text-xs font-semibold">
-        <div className="px-2 py-1 border-r border-[#848484]">Ticker</div>
-        <div className="px-2 py-1 border-r border-[#848484]">Name</div>
-        <div className="px-2 py-1 border-r border-[#848484]">ATH MCap</div>
-        <div className="px-2 py-1">Now</div>
-      </div>
-
-      {/* Items List */}
-      <div className="flex-1 overflow-auto">
-        {recycleItems.map((item, index) => (
-          <div 
-            key={index}
-            className="grid grid-cols-[80px_1fr_100px_100px] text-xs border-b border-[#e5e5e5] hover:bg-[#316ac5] hover:text-white group cursor-default"
-          >
-            <div className="px-2 py-1.5 font-bold text-[#316ac5] group-hover:text-white truncate">
-              {item.ticker}
-            </div>
-            <div className="px-2 py-1.5 truncate" title={item.name}>
-              {item.name}
-            </div>
-            <div className="px-2 py-1.5 text-[#008000] group-hover:text-white font-mono">
-              {item.athMcap}
-            </div>
-            <div className="px-2 py-1.5 text-[#cc0000] group-hover:text-white font-mono">
-              {item.currentMcap}
-            </div>
+      {/* File list */}
+      <div className="flex-1 overflow-auto p-2">
+        <div className="bg-white border-2 border-t-gray-600 border-l-gray-600 border-b-white border-r-white">
+          {/* Header row */}
+          <div className="flex text-xs font-bold bg-gray-200 border-b border-gray-400 p-1">
+            <div className="w-6">🗑️</div>
+            <div className="flex-1">Name</div>
+            <div className="w-20 text-right">Size</div>
+            <div className="w-24 text-right">Deleted</div>
           </div>
-        ))}
+          
+          {deletedFiles.map((file) => (
+            <div
+              key={file.name}
+              onClick={() => handleSelect(file.name)}
+              className={`flex items-center text-xs p-1 cursor-pointer border-b border-gray-100
+                ${selected === file.name ? 'bg-[#316ac5] text-white' : 'hover:bg-gray-100'}
+              `}
+            >
+              <div className="w-6">📄</div>
+              <div className="flex-1 truncate">{file.name}</div>
+              <div className="w-20 text-right">{file.size}</div>
+              <div className="w-24 text-right">{file.date}</div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Info Box */}
-      <div className="bg-[#ffffc8] border-t border-[#808080] p-2 text-xs">
-        <p className="font-bold">These gains cannot be recovered.</p>
-        <p className="text-[#808080]">They exist only in our memories now. Return to Tradition.</p>
-      </div>
-
-      {/* Status Bar */}
-      <div className="bg-[#ece9d8] border-t border-[#848484] px-2 py-1 text-xs text-[#808080]">
-        {recycleItems.length} coins - billions of dollars of unrealized gains
+      {/* Status bar */}
+      <div className="p-1 border-t border-gray-400 text-xs flex justify-between">
+        <span>{deletedFiles.length} items (none recoverable)</span>
+        <span className="text-gray-500">Total chaos: Yes</span>
       </div>
     </div>
   )

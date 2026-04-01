@@ -1,40 +1,66 @@
 'use client'
 
+import { useChaosStore } from '@/stores/chaosStore'
+
 export function Socials() {
+  const { incrementClicks, showClippy } = useChaosStore()
+
+  const handleClick = (platform: string) => {
+    incrementClicks()
+    if (Math.random() < 0.4) {
+      showClippy(`Opening ${platform}? In this economy?`)
+    }
+  }
+
   return (
-    <div className="flex flex-col h-full bg-[#c0c0c0] items-center justify-center p-6">
-      {/* Globe Icon */}
-      <div className="mb-6">
-        <svg width="48" height="48" viewBox="0 0 48 48">
-          <circle cx="24" cy="24" r="20" fill="none" stroke="#4a9eda" strokeWidth="2" />
-          <ellipse cx="24" cy="24" rx="8" ry="20" fill="none" stroke="#4a9eda" strokeWidth="2" />
-          <line x1="4" y1="24" x2="44" y2="24" stroke="#4a9eda" strokeWidth="2" />
-          <ellipse cx="24" cy="14" rx="16" ry="6" fill="none" stroke="#4a9eda" strokeWidth="1.5" />
-          <ellipse cx="24" cy="34" rx="16" ry="6" fill="none" stroke="#4a9eda" strokeWidth="1.5" />
-        </svg>
+    <div className="p-4 bg-[#c0c0c0] h-full font-['MS_Sans_Serif',Tahoma,sans-serif]">
+      <div className="text-center mb-6">
+        <span className="text-4xl mb-2 block">💬</span>
+        <p className="font-bold">Messenger</p>
+        <p className="text-xs text-gray-600 mt-1">Connect with... nobody</p>
       </div>
-
-      {/* Title */}
-      <h1 className="text-2xl font-bold text-[#1a1a1a] mb-8">
-        $2024 Socials
-      </h1>
-
-      {/* X Button */}
-      <a 
-        href="https://x.com/buy2024coin" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 bg-white border-2 border-[#808080] px-6 py-3 mb-4 cursor-pointer hover:bg-[#f0f0f0] transition-colors"
-        style={{ boxShadow: 'inset -1px -1px 0 #404040, inset 1px 1px 0 #fff' }}
-      >
-        <span className="text-xl font-bold">𝕏</span>
-        <span className="text-sm text-[#1a1a1a]">@buy2024coin</span>
-      </a>
-
-      {/* Tagline */}
-      <div className="mt-8 text-center text-[#404040] text-sm">
-        <p>Remember the feeling</p>
+      
+      <div className="space-y-3">
+        <a 
+          href="#" 
+          onClick={(e) => { e.preventDefault(); handleClick('Twitter'); }}
+          className="flex items-center gap-3 p-3 bg-white border-2 border-t-gray-600 border-l-gray-600 border-b-white border-r-white hover:bg-gray-100"
+        >
+          <span className="text-2xl">🐦</span>
+          <div>
+            <span className="font-bold text-sm">Twitter</span>
+            <span className="text-xs text-gray-500 block">@nobody</span>
+          </div>
+        </a>
+        
+        <a 
+          href="#"
+          onClick={(e) => { e.preventDefault(); handleClick('Telegram'); }}
+          className="flex items-center gap-3 p-3 bg-white border-2 border-t-gray-600 border-l-gray-600 border-b-white border-r-white hover:bg-gray-100"
+        >
+          <span className="text-2xl">✈️</span>
+          <div>
+            <span className="font-bold text-sm">Telegram</span>
+            <span className="text-xs text-gray-500 block">Join the void</span>
+          </div>
+        </a>
+        
+        <a 
+          href="#"
+          onClick={(e) => { e.preventDefault(); handleClick('Website'); }}
+          className="flex items-center gap-3 p-3 bg-white border-2 border-t-gray-600 border-l-gray-600 border-b-white border-r-white hover:bg-gray-100"
+        >
+          <span className="text-2xl">🌐</span>
+          <div>
+            <span className="font-bold text-sm">Website</span>
+            <span className="text-xs text-gray-500 block">You're already here</span>
+          </div>
+        </a>
       </div>
+      
+      <p className="text-center text-xs text-gray-500 mt-4">
+        All links lead to disappointment
+      </p>
     </div>
   )
 }

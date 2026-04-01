@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "$2024 - Remember When",
-  description: "A trip back to simpler times. Windows XP memecoin experience.",
+  title: "FOOLS - April 1st",
+  description: "A Windows XP experience for April Fools Day.",
   icons: {
     icon: [
       { url: "/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
@@ -36,4 +36,3 @@ export default function RootLayout({
     </html>
   );
 }
-

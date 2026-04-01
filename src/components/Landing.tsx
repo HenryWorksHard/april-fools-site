@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 import { useAppStore } from '@/stores/appStore'
-import { CONTRACT_ADDRESS } from '@/config/contract'
 
 export function Landing() {
   const { setPhase } = useAppStore()
@@ -39,11 +38,12 @@ export function Landing() {
       <link rel="preload" href="/video/intro.mp4" as="video" type="video/mp4" />
       <link rel="preload" href="/images/bliss.jpg" as="image" />
       
-      {/* 2024 Logo */}
+      {/* FOOLS Logo */}
       <div className="mb-16 text-center">
         <h1 className="text-7xl md:text-9xl font-bold text-white tracking-tight">
-          2024
+          FOOLS
         </h1>
+        <p className="text-gray-500 text-sm mt-2">April 1st Edition</p>
       </div>
 
       {/* Click to Enter */}
@@ -53,12 +53,7 @@ export function Landing() {
 
       {/* Tagline */}
       <p className="text-gray-400 mt-4 text-sm md:text-base text-center leading-relaxed">
-        Return to the good times, return to tradition, return to... <span className="text-white font-bold">$2024</span>
-      </p>
-
-      {/* Contract Address */}
-      <p className="text-green-500 mt-8 text-xs font-mono">
-        CA: {CONTRACT_ADDRESS}
+        A nostalgic trip back to simpler times...
       </p>
     </div>
   )
