@@ -15,7 +15,7 @@ export function BouncingCA() {
   const [buttonOffset, setButtonOffset] = useState({ x: 0, y: 50 })
   
   // CA text - replace "Coming soon" with actual CA later
-  const [caText] = useState('Coming soon')
+  const [caText] = useState('2ESTCxky7HgqfKEEKRA2Y9DULaFw9m6eRSPBCKP5pump')
   
   // DVD bounce colors
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00ffff', '#ffff00', '#ff8800']
