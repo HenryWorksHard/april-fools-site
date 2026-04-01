@@ -41,9 +41,8 @@ export function Landing() {
       {/* foolcoin Logo */}
       <div className="mb-16 text-center">
         <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tight">
-          $FOOL
+          foolcoin
         </h1>
-        <p className="text-gray-400 text-xl mt-4 font-light">foolcoin</p>
       </div>
 
       {/* Click to Enter */}

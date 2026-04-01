@@ -34,7 +34,7 @@ const chaosMapping: Record<string, string> = {
 }
 
 const desktopIcons = [
-  { id: 'ca', icon: '🤡', label: '$FOOL.exe' },
+  { id: 'ca', icon: '🤡', label: 'foolcoin.exe' },
   { id: 'manifesto', icon: '📜', label: 'manifesto.exe' },
   { id: 'games', icon: '🎮', label: 'games.exe' },
   { id: 'chart', icon: '📈', label: 'chart.exe' },
@@ -45,14 +45,14 @@ const desktopIcons = [
 ]
 
 const appConfigs: Record<string, { title: string; icon: string; width: number; height: number }> = {
-  ca: { title: '$FOOL - Contract Address', icon: '🤡', width: 450, height: 400 },
+  ca: { title: 'foolcoin - Contract Address', icon: '🤡', width: 450, height: 400 },
   manifesto: { title: 'manifesto.exe - Notepad', icon: '📜', width: 500, height: 400 },
   readme: { title: 'README.txt - Notepad', icon: '📝', width: 450, height: 350 },
   games: { title: 'Games Menu', icon: '🎮', width: 300, height: 250 },
   minesweeper: { title: 'Minesweeper', icon: '💣', width: 320, height: 420 },
   snake: { title: 'Snake', icon: '🐍', width: 420, height: 480 },
   paint: { title: 'Paint', icon: '🎨', width: 600, height: 500 },
-  chart: { title: '$FOOL - DexScreener', icon: '📈', width: 700, height: 500 },
+  chart: { title: 'foolcoin - DexScreener', icon: '📈', width: 700, height: 500 },
   socials: { title: 'foolcoin.lol', icon: '💬', width: 350, height: 320 },
   gallery: { title: 'Gallery', icon: '🖼️', width: 600, height: 550 },
   recycle: { title: 'Recycle Bin', icon: '🗑️', width: 500, height: 450 },

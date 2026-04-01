@@ -105,7 +105,7 @@ export function FakeChart() {
     if (Math.random() < 0.1) {
       ctx.font = '20px Arial'
       ctx.fillStyle = 'rgba(255, 0, 0, 0.3)'
-      const texts = ['RUG', 'NGMI', 'RIP', 'F', 'GG', '$FOOL']
+      const texts = ['RUG', 'NGMI', 'RIP', 'F', 'GG', 'foolcoin']
       ctx.fillText(texts[Math.floor(Math.random() * texts.length)], Math.random() * width, Math.random() * height)
     }
   }
@@ -145,8 +145,8 @@ export function FakeChart() {
         <div className="flex items-center gap-3">
           <span className="text-3xl">🤡</span>
           <div>
-            <h2 className="text-lg font-bold">$FOOL / USD</h2>
-            <p className="text-xs text-gray-500">foolcoin • DexScreener</p>
+            <h2 className="text-lg font-bold">foolcoin / USD</h2>
+            <p className="text-xs text-gray-500">DexScreener</p>
           </div>
         </div>
         <div className="text-right">
@@ -215,7 +215,7 @@ export function FakeChart() {
 
       {/* Warning banner */}
       <div className="bg-yellow-900/50 border-t border-yellow-600 p-2 text-center text-xs">
-        <span className="text-yellow-500">[!] This chart only goes down. That's the $FOOL promise.</span>
+        <span className="text-yellow-500">[!] This chart only goes down. That's the foolcoin promise.</span>
       </div>
     </div>
   )

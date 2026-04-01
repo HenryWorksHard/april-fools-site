@@ -15,7 +15,7 @@ const fakeAddresses = [
 ]
 
 const trollCopies = [
-  "Copied: $FOOL? More like $FOOLED",
+  "Copied: foolcoin? More like fooled",
   "Copied: HA! You thought.",
   "Copied: Nothing. Absolutely nothing.",
   "Copied: The lyrics to Never Gonna Give You Up",
@@ -61,8 +61,8 @@ export function FakeCA() {
     <div className="flex flex-col items-center justify-center h-full p-6 bg-[#c0c0c0] font-['MS_Sans_Serif',Tahoma,sans-serif]">
       <div className="text-center mb-4">
         <div className="text-6xl mb-2">🤡</div>
-        <h2 className="text-lg font-bold">$FOOL Contract Address</h2>
-        <p className="text-xs text-gray-600 mt-1">foolcoin - 100% legitimate</p>
+        <h2 className="text-lg font-bold">foolcoin contract address</h2>
+        <p className="text-xs text-gray-600 mt-1">100% legitimate</p>
       </div>
 
       <div className="w-full max-w-sm">
@@ -98,7 +98,7 @@ export function FakeCA() {
 
         <div className="mt-4 text-center">
           <p className="text-xs text-gray-500">
-            Token: $FOOL (foolcoin)
+            Token: foolcoin
           </p>
           <p className="text-xs text-gray-500">
             Total Supply: 420,690,000,000
