@@ -12,10 +12,10 @@ export function BouncingCA() {
   const [displayPos, setDisplayPos] = useState({ x: 100, y: 100 })
   
   // Button offset from CA
-  const [buttonOffset, setButtonOffset] = useState({ x: 0, y: 50 })
+  const [buttonOffset, setButtonOffset] = useState({ x: 0, y: 30 })
   
-  // CA text - replace "Coming soon" with actual CA later
-  const [caText] = useState('2ESTCxky7HgqfKEEKRA2Y9DULaFw9m6eRSPBCKP5pump')
+  // CA text
+  const [caText] = useState('Coming soon')
   
   // DVD bounce colors
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00ffff', '#ffff00', '#ff8800']
@@ -26,8 +26,8 @@ export function BouncingCA() {
     let animationFrame: number
 
     const animate = () => {
-      const maxX = window.innerWidth - 280
-      const maxY = window.innerHeight - 120
+      const maxX = window.innerWidth - 168
+      const maxY = window.innerHeight - 72
       
       // Update position
       posRef.current.x += velRef.current.x
@@ -58,8 +58,8 @@ export function BouncingCA() {
 
   // Handle mouse proximity to button - make it evade
   const handleMouseMove = useCallback((e: MouseEvent) => {
-    const buttonX = posRef.current.x + 140 + buttonOffset.x
-    const buttonY = posRef.current.y + 60 + buttonOffset.y
+    const buttonX = posRef.current.x + 84 + buttonOffset.x
+    const buttonY = posRef.current.y + 36 + buttonOffset.y
     
     const dx = e.clientX - buttonX
     const dy = e.clientY - buttonY
@@ -71,8 +71,8 @@ export function BouncingCA() {
       const evadeDistance = 80
       
       setButtonOffset(prev => ({
-        x: Math.max(-80, Math.min(80, prev.x - Math.cos(angle) * evadeDistance)),
-        y: Math.max(40, Math.min(90, prev.y - Math.sin(angle) * evadeDistance))
+        x: Math.max(-50, Math.min(50, prev.x - Math.cos(angle) * evadeDistance)),
+        y: Math.max(24, Math.min(54, prev.y - Math.sin(angle) * evadeDistance))
       }))
     }
   }, [buttonOffset])
@@ -87,7 +87,7 @@ export function BouncingCA() {
     const interval = setInterval(() => {
       setButtonOffset(prev => ({
         x: prev.x * 0.95,
-        y: 50 + (prev.y - 50) * 0.95
+        y: 30 + (prev.y - 30) * 0.95
       }))
     }, 100)
     return () => clearInterval(interval)
@@ -110,8 +110,8 @@ export function BouncingCA() {
         }}
       >
         <div className="text-center">
-          <div className="text-xs opacity-60 mb-1">CA:</div>
-          <div className="text-4xl font-bold tracking-wider">
+          <div className="text-[8px] opacity-60 mb-0.5">CA:</div>
+          <div className="text-2xl font-bold tracking-wider">
             {caText}
           </div>
         </div>
