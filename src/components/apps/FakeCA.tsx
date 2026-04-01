@@ -1,124 +1,173 @@
 'use client'
 
-import { useState } from 'react'
-import { useChaosStore } from '@/stores/chaosStore'
-
-const fakeAddresses = [
-  "F00L420C01N69LMAO2026GOTTEM",
-  "NotARealAddress1111111111111",
-  "YouActuallyTriedToCopyThis123",
-  "ThisIsDefinitelyLegit99999999",
-  "TrustMeBro11111111111111111111",
-  "TotallyNotFake9999999999999999",
-  "DefinitelyRealAddress11111111",
-  "LMAOGETPRANKED420420420420420",
-]
-
-const trollCopies = [
-  "Copied: foolcoin? More like fooled",
-  "Copied: HA! You thought.",
-  "Copied: Nothing. Absolutely nothing.",
-  "Copied: The lyrics to Never Gonna Give You Up",
-  "Copied: A very important message (jk)",
-  "Copied: Trust issues",
-  "Copied: Air. You copied air.",
-]
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 export function FakeCA() {
-  const [copied, setCopied] = useState(false)
-  const [copyMessage, setCopyMessage] = useState('')
-  const [currentAddress, setCurrentAddress] = useState(fakeAddresses[0])
-  const [clickCount, setClickCount] = useState(0)
-  const { incrementClicks, showClippy } = useChaosStore()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const caRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  
+  // CA position and velocity
+  const [caPos, setCaPos] = useState({ x: 50, y: 50 })
+  const [caVel, setCaVel] = useState({ x: 2, y: 1.5 })
+  
+  // Button follows CA but evades cursor
+  const [buttonOffset, setButtonOffset] = useState({ x: 0, y: 40 })
+  const [isEvading, setIsEvading] = useState(false)
+  
+  // CA text (can be updated later)
+  const [caText, setCaText] = useState('Coming soon')
+  
+  // DVD bounce colors
+  const colors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00ffff', '#ffff00', '#ff8800']
+  const [colorIndex, setColorIndex] = useState(0)
 
-  const handleCopy = () => {
-    incrementClicks()
-    setClickCount(prev => prev + 1)
-    
-    // Change the displayed address each time
-    setCurrentAddress(fakeAddresses[clickCount % fakeAddresses.length])
-    
-    // Copy something random to clipboard (not the actual address)
-    const trollText = trollCopies[Math.floor(Math.random() * trollCopies.length)]
-    
-    // Actually copy a troll message
-    navigator.clipboard.writeText("foolcoin.lol - There is no CA. April Fools!").catch(() => {})
-    
-    setCopyMessage(trollText)
-    setCopied(true)
-    
-    setTimeout(() => {
-      setCopied(false)
-    }, 2000)
+  // Animate the bouncing CA
+  useEffect(() => {
+    const container = containerRef.current
+    const ca = caRef.current
+    if (!container || !ca) return
 
-    // Show clippy on 3rd click
-    if (clickCount === 2) {
-      showClippy("I see you're trying to copy a CA. Would you like me to make it worse?")
+    let animationFrame: number
+    let x = caPos.x
+    let y = caPos.y
+    let vx = caVel.x
+    let vy = caVel.y
+
+    const animate = () => {
+      const containerRect = container.getBoundingClientRect()
+      const caRect = ca.getBoundingClientRect()
+      
+      // Update position
+      x += vx
+      y += vy
+      
+      // Bounce off walls
+      const maxX = containerRect.width - caRect.width
+      const maxY = containerRect.height - caRect.height - 60 // Leave room for button
+      
+      if (x <= 0 || x >= maxX) {
+        vx = -vx
+        setColorIndex(prev => (prev + 1) % colors.length)
+      }
+      if (y <= 0 || y >= maxY) {
+        vy = -vy
+        setColorIndex(prev => (prev + 1) % colors.length)
+      }
+      
+      // Clamp
+      x = Math.max(0, Math.min(x, maxX))
+      y = Math.max(0, Math.min(y, maxY))
+      
+      setCaPos({ x, y })
+      setCaVel({ x: vx, y: vy })
+      
+      animationFrame = requestAnimationFrame(animate)
     }
-  }
+
+    animationFrame = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationFrame)
+  }, []) // Only run once
+
+  // Handle mouse proximity to button - make it evade
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const container = containerRef.current
+    const button = buttonRef.current
+    if (!container || !button) return
+
+    const containerRect = container.getBoundingClientRect()
+    const buttonRect = button.getBoundingClientRect()
+    
+    const mouseX = e.clientX - containerRect.left
+    const mouseY = e.clientY - containerRect.top
+    
+    const buttonCenterX = buttonRect.left - containerRect.left + buttonRect.width / 2
+    const buttonCenterY = buttonRect.top - containerRect.top + buttonRect.height / 2
+    
+    const dx = mouseX - buttonCenterX
+    const dy = mouseY - buttonCenterY
+    const distance = Math.sqrt(dx * dx + dy * dy)
+    
+    // If mouse is within 80px, evade!
+    if (distance < 80) {
+      setIsEvading(true)
+      // Move away from cursor
+      const angle = Math.atan2(dy, dx)
+      const evadeDistance = 100
+      const newOffsetX = buttonOffset.x - Math.cos(angle) * evadeDistance
+      const newOffsetY = buttonOffset.y - Math.sin(angle) * evadeDistance
+      
+      // Clamp to stay within reasonable bounds
+      setButtonOffset({
+        x: Math.max(-100, Math.min(100, newOffsetX)),
+        y: Math.max(30, Math.min(80, newOffsetY))
+      })
+    } else {
+      setIsEvading(false)
+    }
+  }, [buttonOffset])
+
+  // Reset button position periodically
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isEvading) {
+        setButtonOffset(prev => ({
+          x: prev.x * 0.9, // Slowly return to center
+          y: 40 + (prev.y - 40) * 0.9
+        }))
+      }
+    }, 100)
+    return () => clearInterval(interval)
+  }, [isEvading])
 
   return (
-    <div className="flex flex-col items-center justify-center h-full p-6 bg-[#c0c0c0] font-['MS_Sans_Serif',Tahoma,sans-serif]">
-      <div className="text-center mb-4">
-        <div className="text-6xl mb-2">🤡</div>
-        <h2 className="text-lg font-bold">foolcoin contract address</h2>
-        <p className="text-xs text-gray-600 mt-1">100% legitimate</p>
-      </div>
-
-      <div className="w-full max-w-sm">
-        <div className="bg-white border-2 border-t-gray-600 border-l-gray-600 border-b-white border-r-white p-3 mb-3">
-          <p className="font-mono text-xs break-all text-center select-all">
-            {currentAddress}
-          </p>
-        </div>
-
-        <button
-          onClick={handleCopy}
-          className={`w-full py-2 px-4 border-2 text-sm font-bold transition-all
-            ${copied 
-              ? 'bg-green-500 text-white border-green-700' 
-              : 'bg-[#c0c0c0] border-t-white border-l-white border-b-gray-600 border-r-gray-600 hover:bg-[#d0d0d0]'
-            }
-            active:border-t-gray-600 active:border-l-gray-600 active:border-b-white active:border-r-white
-          `}
-        >
-          {copied ? copyMessage : '📋 Copy CA'}
-        </button>
-
-        {clickCount > 0 && (
-          <p className="text-xs text-center mt-3 text-red-600 animate-pulse">
-            Attempts to copy: {clickCount} | Successful copies: 0
-          </p>
-        )}
-
-        <div className="mt-4 p-3 bg-yellow-100 border border-yellow-400 text-xs">
-          <p className="font-bold mb-1">[!] WARNING:</p>
-          <p>This CA has been verified by absolutely no one. DYOR (Do Your Own Rugging).</p>
-        </div>
-
-        <div className="mt-4 text-center">
-          <p className="text-xs text-gray-500">
-            Token: foolcoin
-          </p>
-          <p className="text-xs text-gray-500">
-            Total Supply: 420,690,000,000
-          </p>
-          <p className="text-xs text-gray-500">
-            Liquidity: Locked (in our hearts)
-          </p>
-        </div>
-      </div>
-
-      {clickCount >= 5 && (
-        <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
-          <div className="text-center text-white">
-            <p className="text-4xl mb-4">🤡 $FOOLED 🤡</p>
-            <p className="text-lg">There is no CA.</p>
-            <p className="text-lg">There was never a CA.</p>
-            <p className="text-sm mt-4 text-gray-400">foolcoin.lol - Happy April Fools!</p>
+    <div 
+      ref={containerRef}
+      className="relative w-full h-full bg-black overflow-hidden cursor-default"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Bouncing CA */}
+      <div
+        ref={caRef}
+        className="absolute transition-colors duration-300 select-none"
+        style={{
+          left: caPos.x,
+          top: caPos.y,
+          color: colors[colorIndex],
+          textShadow: `0 0 10px ${colors[colorIndex]}`,
+        }}
+      >
+        <div className="text-center">
+          <div className="text-5xl font-bold tracking-wider">
+            {caText}
+          </div>
+          <div className="text-xs mt-1 opacity-60">
+            CA
           </div>
         </div>
-      )}
+        
+        {/* Click to copy button that evades */}
+        <button
+          ref={buttonRef}
+          className="absolute text-xs text-gray-400 hover:text-white transition-all duration-75 whitespace-nowrap"
+          style={{
+            left: `calc(50% + ${buttonOffset.x}px)`,
+            top: buttonOffset.y,
+            transform: 'translateX(-50%)',
+          }}
+          onClick={() => {
+            // They'll never actually click this, but just in case
+            navigator.clipboard.writeText("Nice try! There is no CA. Happy April Fools!")
+          }}
+        >
+          [ click to copy ]
+        </button>
+      </div>
+
+      {/* DVD logo in corner */}
+      <div className="absolute bottom-2 right-2 text-gray-600 text-xs opacity-30">
+        DVD
+      </div>
     </div>
   )
 }
